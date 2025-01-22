@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useTheme } from "next-themes";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -8,6 +8,21 @@ import { Button } from "@/components/ui/button";
 export default function Header() {
   const { theme, setTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  // إغلاق القائمة عند النقر خارجها
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 bg-primary dark:bg-secondary shadow-md">
@@ -31,8 +46,14 @@ export default function Header() {
           </Button>
         </div>
       </div>
-      {isMenuOpen && (
-        <nav className="md:hidden bg-primary dark:bg-secondary py-4">
+      {/* القائمة المنسدلة للهواتف */}
+      <div
+        ref={menuRef}
+        className={`md:hidden bg-primary dark:bg-secondary transition-all duration-300 ease-in-out overflow-hidden ${
+          isMenuOpen ? "max-h-96" : "max-h-0"
+        }`}
+      >
+        <nav className="px-4 py-2">
           <NavLink href="#home" onClick={() => setIsMenuOpen(false)}>
             Home
           </NavLink>
@@ -49,7 +70,7 @@ export default function Header() {
             Contact
           </NavLink>
         </nav>
-      )}
+      </div>
     </header>
   );
 }
