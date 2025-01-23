@@ -61,12 +61,13 @@ body {
     --chart-5: 340 75% 55%;
   }
 }
+
 @keyframes marquee {
   0% {
-    transform: translateX(0%);
+    transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }
 
@@ -74,6 +75,30 @@ body {
   animation: marquee 20s linear infinite;
 }
 
+.marquee-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.marquee-container::before,
+.marquee-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 10;
+}
+
+.marquee-container::before {
+  left: 0;
+  background: linear-gradient(to right, var(--background-light), transparent);
+}
+
+.marquee-container::after {
+  right: 0;
+  background: linear-gradient(to left, var(--background-light), transparent);
+}
 
 @layer base {
   * {

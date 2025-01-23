@@ -1,33 +1,38 @@
 module.exports = {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   theme: {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#FCC6FF", // لون أساسي (Lavender Pink)
-          foreground: "#333333", // لون النص داكن (رمادي غامق)
+          DEFAULT: "#6D28D9", // لون أساسي (بنفسجي غامق)
+          foreground: "#FFFFFF", // لون النص فاتح (أبيض)
         },
         secondary: {
-          DEFAULT: "#FFE6C9", // لون ثانوي (Peach Cream)
-          foreground: "#333333", // لون النص داكن (رمادي غامق)
+          DEFAULT: "#1E40AF", // لون ثانوي (أزرق غامق)
+          foreground: "#FFFFFF", // لون النص فاتح (أبيض)
         },
         accent: {
-          DEFAULT: "#FFC785", // لون التمييز (Light Orange)
-          foreground: "#333333", // لون النص داكن (رمادي غامق)
+          DEFAULT: "#DB2777", // لون التمييز (وردي غامق)
+          foreground: "#FFFFFF", // لون النص فاتح (أبيض)
         },
         background: {
-          light: "#F5F5F5", // خلفية فاتحة (أبيض فاتح)
-          dark: "#1E1E1E", // خلفية داكنة (أسود تقريبًا)
+          light: "#F3F4F6", // خلفية فاتحة (رمادي فاتح)
+          dark: "#111827", // خلفية داكنة (رمادي غامق جدًا)
         },
         highlight: {
-          DEFAULT: "#FFA09B", // لون التمييز الإضافي (Soft Coral)
-          foreground: "#333333", // لون النص داكن (رمادي غامق)
+          DEFAULT: "#F59E0B", // لون التمييز الإضافي (برتقالي)
+          foreground: "#FFFFFF", // لون النص فاتح (أبيض)
         },
         button: {
-          DEFAULT: "#FFC785", // لون الأزرار (Light Orange)
-          hover: "#FFB366", // لون الأزرار عند التمرير
-          foreground: "#333333", // لون النص على الأزرار
+          DEFAULT: "#7C3AED", // لون الأزرار (بنفسجي)
+          hover: "#6D28D9", // لون الأزرار عند التمرير (بنفسجي غامق)
+          foreground: "#FFFFFF", // لون النص على الأزرار (أبيض)
         },
       },
       borderRadius: {

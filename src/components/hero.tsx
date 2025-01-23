@@ -51,7 +51,7 @@ export default function Hero() {
         {/* النصوص */}
         <div className="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
           <h1 className="text-4xl md:text-6xl font-bold text-secondary dark:text-primary mb-6">
-            Dev Duck Co
+            Abdel Hamed Reda
           </h1>
           <p className="text-xl md:text-2xl text-secondary dark:text-primary mb-8">
             {text}

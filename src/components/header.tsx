@@ -4,6 +4,8 @@ import { useState, useEffect, useRef } from "react";
 import { useTheme } from "next-themes";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Header() {
   const { theme, setTheme } = useTheme();
@@ -25,53 +27,95 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-primary dark:bg-secondary shadow-md">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div className="text-2xl font-bold text-secondary dark:text-primary">Dev Duck Co</div>
-        <nav className="hidden md:flex space-x-4">
-          <NavLink href="#home">Home</NavLink>
-          <NavLink href="#skills">Skills</NavLink>
-          <NavLink href="#projects">Projects</NavLink>
-          <NavLink href="#testimonials">Testimonials</NavLink>
-          <NavLink href="#contact">Contact</NavLink>
-        </nav>
-        <div className="flex items-center space-x-4">
-          <Button variant="ghost" size="icon" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
-            <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-            <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-            <span className="sr-only">Toggle theme</span>
-          </Button>
-          <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
-        </div>
-      </div>
-      {/* القائمة المنسدلة للهواتف */}
-      <div
-        ref={menuRef}
-        className={`md:hidden bg-primary dark:bg-secondary transition-all duration-300 ease-in-out overflow-hidden ${
-          isMenuOpen ? "max-h-96" : "max-h-0"
-        }`}
+    <AnimatePresence mode="wait">
+      <motion.header
+        key={theme} // استخدام الوضع الحالي كمفتاح لإعادة تحريك الصفحة
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        className="sticky top-0 z-50 bg-background dark:bg-background-dark shadow-md"
       >
-        <nav className="px-4 py-2">
-          <NavLink href="#home" onClick={() => setIsMenuOpen(false)}>
-            Home
-          </NavLink>
-          <NavLink href="#skills" onClick={() => setIsMenuOpen(false)}>
-            Skills
-          </NavLink>
-          <NavLink href="#projects" onClick={() => setIsMenuOpen(false)}>
-            Projects
-          </NavLink>
-          <NavLink href="#testimonials" onClick={() => setIsMenuOpen(false)}>
-            Testimonials
-          </NavLink>
-          <NavLink href="#contact" onClick={() => setIsMenuOpen(false)}>
-            Contact
-          </NavLink>
-        </nav>
-      </div>
-    </header>
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+          <div className="text-2xl font-bold text-primary dark:text-secondary">
+            <Link href="/">Abdel Hamed Reda</Link>
+          </div>
+          <nav className="hidden md:flex space-x-4">
+            <NavLink href="#home">Home</NavLink>
+            <NavLink href="#skills">Skills</NavLink>
+            <NavLink href="#projects">Projects</NavLink>
+            <NavLink href="#testimonials">Testimonials</NavLink>
+            <NavLink href="#contact">Contact</NavLink>
+          </nav>
+          <div className="flex items-center space-x-4">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-primary dark:text-secondary hover:bg-primary/10 dark:hover:bg-secondary/10"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            >
+              <AnimatePresence mode="wait">
+                {theme === "dark" ? (
+                  <motion.div
+                    key="moon"
+                    initial={{ opacity: 0, rotate: 90 }}
+                    animate={{ opacity: 1, rotate: 0 }}
+                    exit={{ opacity: 0, rotate: -90 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Moon className="h-5 w-5" />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="sun"
+                    initial={{ opacity: 0, rotate: -90 }}
+                    animate={{ opacity: 1, rotate: 0 }}
+                    exit={{ opacity: 0, rotate: 90 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Sun className="h-5 w-5" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+              <span className="sr-only">Toggle theme</span>
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden text-primary dark:text-secondary hover:bg-primary/10 dark:hover:bg-secondary/10"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </Button>
+          </div>
+        </div>
+        {/* القائمة المنسدلة للهواتف */}
+        <div
+          ref={menuRef}
+          className={`md:hidden bg-background dark:bg-background-dark transition-all duration-300 ease-in-out overflow-hidden ${
+            isMenuOpen ? "max-h-96" : "max-h-0"
+          }`}
+        >
+          <nav className="px-4 py-2">
+            <NavLink href="#home" onClick={() => setIsMenuOpen(false)}>
+              Home
+            </NavLink>
+            <NavLink href="#skills" onClick={() => setIsMenuOpen(false)}>
+              Skills
+            </NavLink>
+            <NavLink href="#projects" onClick={() => setIsMenuOpen(false)}>
+              Projects
+            </NavLink>
+            <NavLink href="#testimonials" onClick={() => setIsMenuOpen(false)}>
+              Testimonials
+            </NavLink>
+            <NavLink href="#contact" onClick={() => setIsMenuOpen(false)}>
+              Contact
+            </NavLink>
+          </nav>
+        </div>
+      </motion.header>
+    </AnimatePresence>
   );
 }
 
@@ -85,7 +129,7 @@ function NavLink({ href, children, ...props }: NavLinkProps) {
   return (
     <a
       href={href}
-      className="block md:inline-block px-4 py-2 text-secondary-foreground dark:text-primary-foreground hover:text-accent dark:hover:text-accent transition-colors"
+      className="block md:inline-block px-4 py-2 text-primary dark:text-secondary hover:text-accent dark:hover:text-accent transition-colors"
       {...props}
     >
       {children}
