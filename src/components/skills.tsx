@@ -62,7 +62,7 @@ export default function Skills() {
     <section id="skills" className="py-20 bg-background-light dark:bg-background-dark">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-secondary dark:text-primary mb-12 text-center">
-          Our Quackabilities
+        Skills
         </h2>
         <div className="relative overflow-hidden">
           {/* تأثير التدرج في البداية والنهاية */}

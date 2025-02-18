@@ -5,9 +5,8 @@ import Header from "@/components/header";
 import Hero from "@/components/hero";
 import Skills from "@/components/skills";
 import Projects from "@/components/projects";
-import Testimonials from "@/components/testimonials";
-import Contact from "@/components/contact";
 import Image from "next/image";
+import Footer from "@/components/footer";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -44,8 +43,7 @@ export default function Home() {
           <Hero />
           <Skills />
           <Projects />
-          <Testimonials />
-          <Contact />
+          <Footer/>
         </>
       )}
     </main>

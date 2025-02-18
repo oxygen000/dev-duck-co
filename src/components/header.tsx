@@ -12,7 +12,6 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  // إغلاق القائمة عند النقر خارجها
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -29,12 +28,12 @@ export default function Header() {
   return (
     <AnimatePresence mode="wait">
       <motion.header
-        key={theme} // استخدام الوضع الحالي كمفتاح لإعادة تحريك الصفحة
+        key={theme}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.3 }}
-        className="sticky top-0 z-50 bg-background dark:bg-background-dark shadow-md"
+        className="sticky top-0 z-50 bg-white dark:bg-background-dark shadow-md"
       >
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="text-2xl font-bold text-primary dark:text-secondary">
@@ -44,8 +43,6 @@ export default function Header() {
             <NavLink href="#home">Home</NavLink>
             <NavLink href="#skills">Skills</NavLink>
             <NavLink href="#projects">Projects</NavLink>
-            <NavLink href="#testimonials">Testimonials</NavLink>
-            <NavLink href="#contact">Contact</NavLink>
           </nav>
           <div className="flex items-center space-x-4">
             <Button
@@ -89,10 +86,9 @@ export default function Header() {
             </Button>
           </div>
         </div>
-        {/* القائمة المنسدلة للهواتف */}
         <div
           ref={menuRef}
-          className={`md:hidden bg-background dark:bg-background-dark transition-all duration-300 ease-in-out overflow-hidden ${
+          className={`md:hidden bg-white dark:bg-background-dark transition-all duration-300 ease-in-out overflow-hidden ${
             isMenuOpen ? "max-h-96" : "max-h-0"
           }`}
         >
@@ -106,12 +102,7 @@ export default function Header() {
             <NavLink href="#projects" onClick={() => setIsMenuOpen(false)}>
               Projects
             </NavLink>
-            <NavLink href="#testimonials" onClick={() => setIsMenuOpen(false)}>
-              Testimonials
-            </NavLink>
-            <NavLink href="#contact" onClick={() => setIsMenuOpen(false)}>
-              Contact
-            </NavLink>
+           
           </nav>
         </div>
       </motion.header>
