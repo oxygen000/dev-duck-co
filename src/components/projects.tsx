@@ -12,29 +12,29 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const projects = [
   {
     title: "E-commerce Admin Angular",
-    image: "/ecommerce-admin-angular.PNG?height=200&width=300",
+    image: "/projects/ecommerce-admin-angular.PNG?height=200&width=300",
     tags: ["Next.js", "Express", "MongoDB", "Stripe"],
     liveUrl: "https://ecommerce-admin-angular-bice.vercel.app/Dashboard",
     githubUrl: "https://github.com/oxygen000/ecommerce-admin-angular",
   },
   {
     title: "E-commerce Next.js",
-    image: "/placeholder.svg?height=200&width=300",
-    tags: ["React", "Node.js", "Socket.io", "PostgreSQL"],
+    image: "/projects/placeholder.svg?height=200&width=300",
+    tags: ["React", "Node.js", "Bun", "MongoDB"],
     liveUrl: "https://quacktask.example.com",
     githubUrl: "https://github.com/oxygen000/e-commerce-project",
   },
   {
     title: "Movie Rating Angular",
-    image: "/movie-rating-app.PNG?height=200&width=300",
-    tags: ["React", "D3.js", "Node.js", "OpenWeatherMap API"],
+    image: "/projects/movie-rating-app.PNG?height=200&width=300",
+    tags: ["Angular", "Scss", "TheMovieDb API"],
     liveUrl: "https://movie-rating-app-indol.vercel.app/home",
     githubUrl: "https://github.com/oxygen000/movie-rating-app",
   },
    {
     title: "Book Reviews Angular",
-    image: "/book-reviews-angular.PNG?height=200&width=300",
-    tags: ["React", "D3.js", "Node.js", "OpenWeatherMap API"],
+    image: "/projects/book-reviews-angular.PNG?height=200&width=300",
+    tags: ["Angular", "Scss", "GoogleBooks API"],
     liveUrl: "https://book-reviews-rose.vercel.app/",
     githubUrl: "https://github.com/oxygen000/book-reviews",
   },
@@ -78,7 +78,7 @@ export default function Projects() {
               <Card className="bg-primary/10 dark:bg-secondary/10 hover:shadow-lg transition-shadow duration-300 border border-primary/20 dark:border-secondary/20">
                 <CardHeader>
                   <Image
-                    src={project.image || "/placeholder.svg"}
+                    src={project.image}
                     alt={project.title}
                     width={300}
                     height={200}
@@ -86,12 +86,12 @@ export default function Projects() {
                   />
                 </CardHeader>
                 <CardContent>
-                  <CardTitle className="text-xl font-semibold text-secondary dark:text-primary mb-2">
+                  <CardTitle className="text-xl font-semibold text-secondary dark:text-primary mb-2 cursor-default">
                     {project.title}
                   </CardTitle>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag) => (
-                      <Badge key={tag} variant="secondary" className="bg-primary/20 dark:bg-secondary/20 text-primary dark:text-secondary">
+                      <Badge key={tag} variant="secondary" className="bg-primary/20 hover:bg-primary/20 cursor-default dark:bg-secondary/20 text-primary dark:text-secondary">
                         {tag}
                       </Badge>
                     ))}

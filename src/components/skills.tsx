@@ -6,51 +6,55 @@ import Image from "next/image";
 const skills = [
   {
     name: "Frontend Development",
-    image: "/react.svg", // مسار الملف في مجلد public
+    image: "/skills/react.svg", // مسار الملف في مجلد public
   },
   {
     name: "Backend Development",
-    image: "/typescript.svg", // مسار الملف في مجلد public
+    image: "/skills/typescript.svg", // مسار الملف في مجلد public
   },
   {
     name: "Fullstack Integration",
-    image: "/tailwindcss.svg", // مسار الملف في مجلد public
+    image: "/skills/tailwindcss.svg", // مسار الملف في مجلد public
   },
   {
     name: "Cloud Deployment",
-    image: "/sass.svg", // مسار الملف في مجلد public
+    image: "/skills/sass.svg", // مسار الملف في مجلد public
   },
   {
     name: "Cloud Deployment",
-    image: "/pnpm.svg", // مسار الملف في مجلد public
+    image: "/skills/pnpm.svg", // مسار الملف في مجلد public
   },
   {
     name: "Cloud Deployment",
-    image: "/nodejs.svg", // مسار الملف في مجلد public
+    image: "/skills/nodejs.svg", // مسار الملف في مجلد public
   },
   {
     name: "Cloud Deployment",
-    image: "/nextjs.svg", // مسار الملف في مجلد public
+    image: "/skills/nextjs.svg", // مسار الملف في مجلد public
   },
   {
     name: "Cloud Deployment",
-    image: "/mongodb.svg", // مسار الملف في مجلد public
+    image: "/skills/mongodb.svg", // مسار الملف في مجلد public
   },
   {
     name: "Cloud Deployment",
-    image: "/materialui.svg", // مسار الملف في مجلد public
+    image: "/skills/materialui.svg", // مسار الملف في مجلد public
   },
   {
     name: "Cloud Deployment",
-    image: "/javascript.svg", // مسار الملف في مجلد public
+    image: "/skills/javascript.svg", // مسار الملف في مجلد public
   },
   {
     name: "Cloud Deployment",
-    image: "/express.svg", // مسار الملف في مجلد public
+    image: "/skills/express.svg", // مسار الملف في مجلد public
   },
   {
     name: "Cloud Deployment",
-    image: "/angular.svg", // مسار الملف في مجلد public
+    image: "/skills/angular.svg", // مسار الملف في مجلد public
+  },
+  {
+    name: "Cloud Deployment",
+    image: "/skills/bun.svg", // مسار الملف في مجلد public
   },
 ];
 
