@@ -2,78 +2,77 @@
 
 import React from "react";
 import Image from "next/image";
+import { Press_Start_2P } from "next/font/google";
+
+const pixelFont = Press_Start_2P({ subsets: ["latin"], weight: "400" });
 
 const skills = [
   {
-    name: "Frontend Development",
-    image: "/skills/react.svg", // مسار الملف في مجلد public
+    name: "react",
+    image: "/skills/react.svg", 
   },
   {
-    name: "Backend Development",
-    image: "/skills/typescript.svg", // مسار الملف في مجلد public
+    name: "typescript",
+    image: "/skills/typescript.svg",
   },
   {
-    name: "Fullstack Integration",
-    image: "/skills/tailwindcss.svg", // مسار الملف في مجلد public
+    name: "tailwindcss",
+    image: "/skills/tailwindcss.svg", 
   },
   {
-    name: "Cloud Deployment",
-    image: "/skills/sass.svg", // مسار الملف في مجلد public
+    name: "sass",
+    image: "/skills/sass.svg", 
   },
   {
-    name: "Cloud Deployment",
-    image: "/skills/pnpm.svg", // مسار الملف في مجلد public
+    name: "pnpm",
+    image: "/skills/pnpm.svg", 
   },
   {
-    name: "Cloud Deployment",
-    image: "/skills/nodejs.svg", // مسار الملف في مجلد public
+    name: "nodejs",
+    image: "/skills/nodejs.svg", 
   },
   {
-    name: "Cloud Deployment",
-    image: "/skills/nextjs.svg", // مسار الملف في مجلد public
+    name: "nextjs",
+    image: "/skills/nextjs.svg", 
   },
   {
-    name: "Cloud Deployment",
-    image: "/skills/mongodb.svg", // مسار الملف في مجلد public
+    name: "mongodb",
+    image: "/skills/mongodb.svg", 
   },
   {
-    name: "Cloud Deployment",
-    image: "/skills/materialui.svg", // مسار الملف في مجلد public
+    name: "materialui",
+    image: "/skills/materialui.svg",
   },
   {
-    name: "Cloud Deployment",
-    image: "/skills/javascript.svg", // مسار الملف في مجلد public
+    name: "javascript",
+    image: "/skills/javascript.svg", 
   },
   {
-    name: "Cloud Deployment",
-    image: "/skills/express.svg", // مسار الملف في مجلد public
+    name: "express",
+    image: "/skills/express.svg",
   },
   {
-    name: "Cloud Deployment",
-    image: "/skills/angular.svg", // مسار الملف في مجلد public
+    name: "angular",
+    image: "/skills/angular.svg", 
   },
   {
-    name: "Cloud Deployment",
-    image: "/skills/bun.svg", // مسار الملف في مجلد public
+    name: "bun",
+    image: "/skills/bun.svg", 
   },
 ];
 
 export default function Skills() {
-  // تكرار الصور مرتين لإنشاء تأثير لا نهائي
-  const repeatedSkills = [...skills, ...skills];
+  const repeatedSkills = [...skills, ...skills, ...skills, ...skills, ...skills];
 
   return (
     <section id="skills" className="py-20 bg-background-light dark:bg-background-dark">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-secondary dark:text-primary mb-12 text-center">
+        <h2 className={`${pixelFont.className} text-3xl md:text-3xl font-bold text-secondary dark:text-primary mb-12 text-center`}>
         Skills
         </h2>
         <div className="relative overflow-hidden">
-          {/* تأثير التدرج في البداية والنهاية */}
           <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background-light dark:from-background-dark to-transparent z-10"></div>
           <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background-light dark:from-background-dark to-transparent z-10"></div>
-
-          {/* شريط التمرير */}
           <div className="flex animate-marquee whitespace-nowrap">
             {repeatedSkills.map((skill, index) => (
               <div

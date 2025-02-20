@@ -2,8 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  cursor: none;
 }
 
 @layer base {
@@ -102,44 +104,40 @@ body {
 
 @layer base {
   * {
-    border-color: hsl(var(--border)); /* استخدام القيمة المخصصة */
+    border-color: hsl(var(--border)); 
   }
   body {
-    background-color: hsl(var(--background)); /* استخدام القيمة المخصصة */
-    color: hsl(var(--foreground)); /* استخدام القيمة المخصصة */
+    background-color: hsl(var(--background)); 
+    color: hsl(var(--foreground));
   }
 }
-/* للمتصفحات التي تدعم تنسيق الـ scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
-/* شريط التمرير الرئيسي */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; /* اللون الفاتح */
+  background: #f1f1f1;
   border-radius: 10px;
 }
 
 .dark ::-webkit-scrollbar-track {
-  background: #1a1a1a; /* اللون الداكن */
+  background: #1a1a1a;
 }
 
-/* المقبض (Thumb) */
 ::-webkit-scrollbar-thumb {
-  background: #3498db; /* اللون الأساسي */
+  background: #3498db;
   border-radius: 10px;
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #7C3AED; /* اللون الثانوي عند الوضع الداكن */
+  background: #7C3AED; 
 }
 
-/* تأثير عند التمرير */
 ::-webkit-scrollbar-thumb:hover {
-  background: #2980b9; /* لون أغمق عند التمرير */
+  background: #2980b9; 
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: #6D28D9; /* لون أغمق عند التمرير في الوضع الداكن */
+  background: #6D28D9; 
 }

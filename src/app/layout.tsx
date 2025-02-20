@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} bg-background-light dark:bg-background-dark`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <ThemeWrapper> {/* استخدام المكون العميل هنا */}
+          <ThemeWrapper>
             {children}
           </ThemeWrapper>
         </ThemeProvider>
