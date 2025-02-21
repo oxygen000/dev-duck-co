@@ -2,9 +2,9 @@
 
 import React from "react";
 import Image from "next/image";
-import { Press_Start_2P } from "next/font/google";
+import { Inter } from "next/font/google";
 
-const pixelFont = Press_Start_2P({ subsets: ["latin"], weight: "400" });
+const interFont = Inter({ subsets: ["latin"], weight: "400" });
 
 const skills = [
   {
@@ -66,8 +66,8 @@ export default function Skills() {
 
   return (
     <section id="skills" className="py-20 bg-background-light dark:bg-background-dark">
-      <div className="container mx-auto px-4">
-        <h2 className={`${pixelFont.className} text-3xl md:text-3xl font-bold text-secondary dark:text-primary mb-12 text-center`}>
+      <div data-cursor="hover" className="container mx-auto px-4">
+        <h2  className={`${interFont.className} text-3xl md:text-3xl font-bold text-secondary dark:text-primary mb-12 text-center`}>
         Skills
         </h2>
         <div className="relative overflow-hidden">

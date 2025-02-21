@@ -1,30 +1,53 @@
-import React, { useEffect } from "react";
-import { gsap } from "gsap";
+import React, { useEffect, useState } from "react";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 import "./cursor.css";
 
 const Cursor: React.FC = () => {
+  const cursorX = useMotionValue(0);
+  const cursorY = useMotionValue(0);
+  
+  const cursorSpringX = useSpring(cursorX, { stiffness: 500, damping: 10 });
+  const cursorSpringY = useSpring(cursorY, { stiffness: 500, damping: 10 });
+
+  const trailSpringX = useSpring(cursorX, { stiffness: 150, damping: 10 });
+  const trailSpringY = useSpring(cursorY, { stiffness: 150, damping: 10 });
+
+  const [isHovering, setIsHovering] = useState(false);
+
   useEffect(() => {
-    const cursorDot = document.querySelector(".cursor-dot") as HTMLDivElement;
-    const cursorTrail = document.querySelector(".cursor-trail") as HTMLDivElement;
-
-    if (!cursorDot || !cursorTrail) return;
-
     const onMouseMove = (e: MouseEvent) => {
-      gsap.to(cursorDot, { x: e.clientX, y: e.clientY, duration: 0.3 });
-      gsap.to(cursorTrail, { x: e.clientX, y: e.clientY, duration: 1, ease: "power2.out" });
+      cursorX.set(e.clientX);
+      cursorY.set(e.clientY);
     };
 
-    window.addEventListener("mousemove", onMouseMove);
+    const hoverElements = document.querySelectorAll("[data-cursor='hover']");
+    
+    hoverElements.forEach((el) => {
+      el.addEventListener("mouseenter", () => setIsHovering(true));
+      el.addEventListener("mouseleave", () => setIsHovering(false));
+    });
+
+    document.addEventListener("mousemove", onMouseMove);
 
     return () => {
-      window.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mousemove", onMouseMove);
+      hoverElements.forEach((el) => {
+        el.removeEventListener("mouseenter", () => setIsHovering(true));
+        el.removeEventListener("mouseleave", () => setIsHovering(false));
+      });
     };
-  }, []);
+  }, [cursorX, cursorY]);
 
   return (
     <>
-      <div className="cursor-dot"></div>
-      <div className="cursor-trail"></div>
+      <motion.div
+        className={`cursor-dot ${isHovering ? "hover" : ""}`}
+        style={{ x: cursorSpringX, y: cursorSpringY }}
+      />
+      <motion.div
+        className={`cursor-trail ${isHovering ? "hover" : ""}`}
+        style={{ x: trailSpringX, y: trailSpringY }}
+      />
     </>
   );
 };

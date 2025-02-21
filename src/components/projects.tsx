@@ -8,9 +8,9 @@ import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Github } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Press_Start_2P } from "next/font/google";
+import { Inter } from "next/font/google";
 
-const pixelFont = Press_Start_2P({ subsets: ["latin"], weight: "400" });
+const interFont = Inter({ subsets: ["latin"], weight: "400" });
 
 const projects = [
   {
@@ -72,7 +72,7 @@ export default function Projects() {
   return (
     <section id="projects" ref={sectionRef} className="py-20 bg-background-light dark:bg-background-dark">
       <div className="container mx-auto px-4">
-        <h2 className={`${pixelFont.className} text-3xl md:text-3xl  text-secondary dark:text-primary mb-12 text-center`}>
+        <h2 data-cursor="hover" className={`${interFont.className} text-3xl md:text-3xl  text-secondary dark:text-primary mb-12 text-center`}>
           Projects
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -89,30 +89,32 @@ export default function Projects() {
                   />
                 </CardHeader>
                 <CardContent>
-                  <CardTitle className={`${pixelFont.className} mb-4  text-secondary dark:text-primary`}>
+                  <CardTitle className={`${interFont.className} mb-4  text-secondary dark:text-primary`}>
                     {project.title}
                   </CardTitle>
                   <div className="flex flex-wrap gap-2 mb-4 ">
                     {project.tags.map((tag) => (
-                      <Badge key={tag} variant="secondary" className={`${pixelFont.className}  bg-primary/20 hover:bg-primary/20 cursor-none dark:bg-secondary/20 text-primary dark:text-secondary`}>
+                      <Badge key={tag} variant="secondary" className={`${interFont.className}  bg-primary/20 hover:bg-primary/20 cursor-none dark:bg-secondary/20 text-primary dark:text-secondary`}>
                         {tag}
                       </Badge>
                     ))}
                   </div>
                 </CardContent>
-                <CardFooter className={`${pixelFont.className} text-xs flex justify-center gap-4`}>
+                <CardFooter className={`${interFont.className} text-xs flex justify-center gap-4`}>
                   <Button
                     variant="outline"
                     className="bg-primary/10 cursor-none dark:bg-secondary/10 text-primary dark:text-secondary hover:bg-primary/20 dark:hover:bg-secondary/20 transition-colors duration-300 "
                     onClick={() => window.open(project.liveUrl, "_blank")}
+                    data-cursor="hover"
                   >
-                    <ExternalLink className="mr-2 h-4 w-4 " />
+                    <ExternalLink  className="mr-2 h-4 w-4 " />
                     Live Demo
                   </Button>
                   <Button
                     variant="outline"
                     className="bg-primary/10 cursor-none dark:bg-secondary/10 text-primary dark:text-secondary hover:bg-primary/20 dark:hover:bg-secondary/20 transition-colors duration-300"
                     onClick={() => window.open(project.githubUrl, "_blank")}
+                    data-cursor="hover"
                   >
                     <Github className="mr-2 h-4 w-4 " />
                     GitHub

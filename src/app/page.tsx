@@ -5,43 +5,59 @@ import Header from "@/components/header";
 import Hero from "@/components/hero";
 import Skills from "@/components/skills";
 import Projects from "@/components/projects";
-import Image from "next/image";
 import Footer from "@/components/footer";
 import Cursor from "@/components/ui/cusror/cusrsor";
+import AnimatedText from "@/components/ui/AnimatedText";
+import { AnimatePresence } from "framer-motion";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
+  const [theme, setTheme] = useState("");
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedTheme = localStorage.getItem("theme") || "light";
+      setTheme(storedTheme);
+    }
+
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1000);
+    }, 2000); 
 
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const updatedTheme = localStorage.getItem("theme") || "light";
+      setTheme(updatedTheme);
+      setIsLoading(true); 
+
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
+  }, []);
+
   return (
-    <main className="min-h-screen bg-background-light dark:bg-background-dark">
+    <main className={`min-h-screen ${theme === "dark" ? "dark:bg-background-dark" : "bg-background-light"} transition-colors duration-300`}>
       {isLoading ? (
-        <div className="fixed inset-0 flex items-center justify-center bg-background-light dark:bg-background-dark z-50">
-          <div className="animate-pulse">
-            <Image
-              src="/loading.png" 
-              alt="Loading"
-              width={250} 
-              height={250} 
-              className="rounded-full" 
-            />
-          </div>
-        </div>
+        <AnimatePresence>
+          <AnimatedText />
+        </AnimatePresence>
       ) : (
         <>
-          <Cursor/>
+          <div className="cursor">
+            <Cursor />
+          </div>
           <Header />
           <Hero />
           <Skills />
           <Projects />
-          <Footer/>
+          <Footer />
         </>
       )}
     </main>

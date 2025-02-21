@@ -4,9 +4,9 @@ import { useTheme } from "next-themes";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Linkedin, Github, Instagram } from "lucide-react";
-import { Press_Start_2P } from "next/font/google";
+import { Inter } from "next/font/google";
 
-const pixelFont = Press_Start_2P({ subsets: ["latin"], weight: "400" });
+const interFont = Inter({ subsets: ["latin"], weight: "400" });
 
 export default function Footer() {
   const { theme } = useTheme();
@@ -18,12 +18,12 @@ export default function Footer() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className={`bg-white dark:bg-background-dark shadow-md py-8 mt-10 border-t border-gray-200 dark:border-gray-700 ${pixelFont.className}`}
+      className={`bg-white dark:bg-background-dark shadow-md py-8 mt-10 border-t border-gray-200 dark:border-gray-700 ${interFont.className}`}
     >
       <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
         <div className="text-center md:text-left mb-4 md:mb-0">
-          <h2 className="text-xl text-primary dark:text-secondary">Abdel Hamed Reda</h2>
-          <p className="text-sm text-gray-600 dark:text-gray-400">Full-Stack Developer | Passionate about Web Technologies</p>
+          <h2 data-cursor="hover" className="text-xl text-primary dark:text-secondary">Abdel Hamed Reda</h2>
+          <p data-cursor="hover" className="text-sm text-gray-600 dark:text-gray-400">Full-Stack Developer | Next.js | Angular | Express.js</p>
         </div>
         <nav className="flex space-x-6 text-sm">
           <FooterLink href="#home">Home</FooterLink>
@@ -51,6 +51,7 @@ function FooterLink({ href, children }: FooterLinkProps) {
     <Link
       href={href}
       className="text-gray-600 cursor-none dark:text-gray-400 hover:text-primary dark:hover:text-secondary transition-colors"
+      data-cursor="hover"
     >
       {children}
     </Link>
@@ -64,7 +65,7 @@ interface SocialIconProps {
 
 function SocialIcon({ href, icon }: SocialIconProps) {
   return (
-    <Link href={href} target="_blank" rel="noopener noreferrer" className="text-primary cursor-none dark:text-secondary hover:text-accent dark:hover:text-accent transition-colors">
+    <Link href={href} target="_blank" rel="noopener noreferrer" data-cursor="hover" className="text-primary cursor-none dark:text-secondary hover:text-accent dark:hover:text-accent transition-colors">
       {icon}
     </Link>
   );
