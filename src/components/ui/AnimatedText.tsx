@@ -1,8 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 
 export default function PortfolioIntro() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -13,62 +16,65 @@ export default function PortfolioIntro() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  const parallaxVariants = {
-    initial: { x: "-50%", y: "-50%" },
-    animate: { 
-      x: `${mousePosition.x * 0.02}px`, 
-      y: `${mousePosition.y * 0.02}px` 
-    }
-  };
-
   return (
-    <div className="relative flex justify-center items-center min-h-screen bg-black overflow-hidden">
+    <div
+      className={`relative flex justify-center items-center min-h-screen transition-colors duration-500 ${
+        isDark ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"
+      } overflow-hidden`}
+    >
       <motion.div
-        initial={{ y: "0%" }}
-        animate={{ y: "-100%" }}
-        transition={{ duration: 1, ease: "easeInOut" }}
-        className="absolute top-0 left-0 w-full h-full bg-red-600 z-50"
-      />
-
-      <motion.div 
-        variants={parallaxVariants}
-        animate="animate"
-        className="absolute w-96 h-96 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-3xl opacity-30"
+        className="absolute w-[400px] h-[400px] rounded-full blur-3xl opacity-40"
+        style={{
+          background: isDark
+            ? "radial-gradient(circle, rgba(128,0,128,0.6), rgba(255,0,150,0.3))"
+            : "radial-gradient(circle, rgba(0,0,255,0.3), rgba(255,165,0,0.3))",
+        }}
+        animate={{ x: mousePosition.x * 0.03, y: mousePosition.y * 0.03 }}
+        transition={{ type: "spring", stiffness: 100, damping: 12 }}
       />
 
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, ease: "easeOut", delay: 1 }}
-        className="text-center text-white z-10"
+        transition={{ duration: 1, ease: "easeOut", delay: 0.8 }}
+        className="text-center z-10"
       >
-        <motion.h1 className="text-6xl font-extrabold flex gap-4">
+        <motion.h1
+          className="text-5xl md:text-7xl font-bold flex gap-4 justify-center"
+        >
           <motion.span
-            initial={{ y: "100%", opacity: 0 }}
-            animate={{ y: "0%", opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 1 }}
           >
             Abdel Hamed
           </motion.span>
           <motion.span
-            initial={{ y: "-100%", opacity: 0 }}
-            animate={{ y: "0%", opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 1.2 }}
+            className={isDark ? "text-pink-500" : "text-blue-600"}
           >
             Reda
           </motion.span>
         </motion.h1>
 
+        <motion.div
+          className="mt-2 w-48 h-1 mx-auto"
+          style={{ backgroundColor: isDark ? "#ffffff" : "#333333" }}
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 1, ease: "easeInOut", delay: 1.5 }}
+        />
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.5 }}
-          className="mt-4 text-xl text-gray-300"
+          transition={{ duration: 1, delay: 1.8 }}
+          className="mt-4 text-lg md:text-xl font-light"
         >
           Full-Stack Developer | Next.js | Angular | Express.js
         </motion.p>
-
-        
       </motion.div>
     </div>
   );

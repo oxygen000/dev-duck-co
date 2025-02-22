@@ -1,8 +1,8 @@
 "use client";
-import Image from "next/image";
 import { Inter } from "next/font/google";
 import RotatingText from "./ui/RotatingText";
-
+import Orb from "./ui/Orb";
+import './hero.css'
 const interFont = Inter({ subsets: ["latin"], weight: "400" });
 
 export default function Hero() {
@@ -33,16 +33,16 @@ export default function Hero() {
           </div>
         </div>
 
-        <div  className="md:w-1/2 flex justify-center">
-          <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full shadow-yellow-glow dark:shadow-dark-glow drop-shadow-yellow-glow dark:drop-shadow-dark-glow">
-            <Image
-              src="/hero.png"
-              alt="Dev Duck Co Logo"
-              fill
-              className="rounded-full object-cover shadow-2xl hover:scale-105 transition-transform duration-300 drop-shadow-yellow-glow dark:drop-shadow-dark-glow"
-            />
-          </div>
-        </div>
+        <div className="md:w-1/2 flex justify-center">
+  <div className="relative flex sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full  drop-shadow-yellow-glow dark:drop-shadow-dark-glow">
+    <div>
+      <div className=" Orb absolute inset-0 flex items-center justify-center">
+      <Orb hoverIntensity={0.5} rotateOnHover={true} hue={0} forceHoverState={false} />
+      </div>
+    </div>
+  </div>
+</div>
+
       </div>
     </section>
   );
