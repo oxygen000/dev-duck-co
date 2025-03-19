@@ -25,10 +25,10 @@ const projects = [
   },
   {
     title: "E-commerce Next.js",
-    image: "/projects/placeholder.svg",
-    tags: ["React", "Node.js", "Bun", "MongoDB"],
-    liveUrl: "https://quacktask.example.com",
-    githubUrl: "https://github.com/oxygen000/e-commerce-project",
+    image: "/projects/dhul-hijjah.jpg",
+    tags: ["Nextjs", "tailwindcss", "Bun", "GSAP"],
+    liveUrl: "https://dhul-hijjah.vercel.app/",
+    githubUrl: "https://github.com/oxygen000/dhul-hijjah",
   },
   {
     title: "Movie Rating Angular",
