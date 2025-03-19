@@ -19,12 +19,12 @@ const projects = [
   {
     title: "E-commerce Admin ",
     image: "/projects/ecommerce-admin-angular.PNG",
-    tags: ["Next.js", "Express", "MongoDB", "Stripe"],
+    tags: ["Angular", "scss", "MongoDB"],
     liveUrl: "https://ecommerce-admin-angular-bice.vercel.app/Dashboard",
     githubUrl: "https://github.com/oxygen000/ecommerce-admin-angular",
   },
   {
-    title: "E-commerce Next.js",
+    title: "Dhul Hijjah",
     image: "/projects/dhul-hijjah.jpg",
     tags: ["Nextjs", "tailwindcss", "Bun", "GSAP"],
     liveUrl: "https://dhul-hijjah.vercel.app/",
