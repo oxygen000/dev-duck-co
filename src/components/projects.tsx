@@ -26,7 +26,7 @@ const projects = [
   {
     title: "Dhul Hijjah",
     image: "/projects/dhul-hijjah.jpg",
-    tags: ["Nextjs", "tailwindcss", "Bun", "GSAP"],
+    tags: ["Nextjs", "tailwindcss", "Bun"],
     liveUrl: "https://dhul-hijjah.vercel.app/",
     githubUrl: "https://github.com/oxygen000/dhul-hijjah",
   },
