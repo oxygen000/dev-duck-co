@@ -44,6 +44,13 @@ const projects = [
     liveUrl: "https://book-reviews-rose.vercel.app/",
     githubUrl: "https://github.com/oxygen000/book-reviews",
   },
+  {
+    title: "Dashboard",
+    image: "/projects/mes-coca-cola.PNG",
+    tags: ["NextJs", "tailwindcss", "Bun"],
+    liveUrl: "https://mes-coca-cola.vercel.app/",
+    githubUrl: "https://github.com/oxygen000/mes-coca-cola",
+  },
 ];
 
 export default function Projects() {
