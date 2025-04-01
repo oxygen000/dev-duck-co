@@ -51,6 +51,13 @@ const projects = [
     liveUrl: "https://mes-coca-cola.vercel.app/",
     githubUrl: "https://github.com/oxygen000/mes-coca-cola",
   },
+  {
+    title: "Ai Powered Note",
+    image: "/projects/ai-powered-note.PNG",
+    tags: ["ReactJS", "tailwindcss", "DaisyUi","Vite","GSAP","Motion"],
+    liveUrl: "https://ai-powered-notes-frontend.vercel.app/",
+    githubUrl: "https://github.com/oxygen000/ai-powered-notes-frontend",
+  },
 ];
 
 export default function Projects() {
