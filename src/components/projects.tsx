@@ -37,12 +37,20 @@ const projects = [
     liveUrl: "https://movie-rating-app-indol.vercel.app/home",
     githubUrl: "https://github.com/oxygen000/movie-rating-app",
   },
+  
   {
     title: "Book Reviews Angular",
     image: "/projects/book-reviews-angular.PNG",
     tags: ["Angular", "Scss", "GoogleBooks API"],
     liveUrl: "https://book-reviews-rose.vercel.app/",
     githubUrl: "https://github.com/oxygen000/book-reviews",
+  },
+  {
+    title: "Jin Store",
+    image: "/projects/jinstore.png",
+    tags: ["Angular", "Scss", "tailwindcss"],
+    liveUrl: "https://jinstore-one.vercel.app/Home",
+    githubUrl: "https://github.com/oxygen000/jinstore",
   },
   {
     title: "Dashboard",
@@ -79,7 +87,7 @@ export default function Projects() {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 80%",
-          end: "bottom 20%",
+          end: "bottom 60%",
           scrub: 1,
           markers: false,
         },
@@ -99,43 +107,82 @@ export default function Projects() {
         >
           Projects
         </motion.h2>
-        <div className="grid grid-cols-1 gap-12">
-          {projects.map((project, index) => (
-            <motion.div key={project.title} ref={(el) => { cardsRef.current[index] = el; }} className="relative">
-              <Card  className="flex flex-col  md:flex-row w-full h-full  mx-auto bg-primary/10 dark:bg-secondary/10 hover:shadow-xl transition-shadow duration-300 border border-primary/20 dark:border-secondary/20 ">
-                <div className="w-full md:w-1/2">
-                  <Image src={project.image} alt={project.title} width={500} height={300} className="rounded-l-lg object-cover w-full h-full" />
-                </div>
-                <div className="w-full md:w-1/2 p-6 flex flex-col justify-center text-center">
-                  <CardHeader>
-                    <CardTitle className={`${interFont.className} mb-4 text-secondary dark:text-primary text-2xl md:text-3xl font-semibold`}>
-                      {project.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex flex-wrap justify-center gap-3 mb-6">
-                      {project.tags.map((tag) => (
-                        <Badge key={tag} variant="secondary" className="bg-primary/20 hover:bg-primary/20 dark:bg-secondary/20 text-primary dark:text-secondary text-sm px-3 py-1">
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                  <CardFooter className="flex justify-center gap-4">
-                    <Button variant="outline" className=" cursor-none text-md py-2 px-4 bg-primary/10 dark:bg-secondary/10 hover:bg-primary/20 dark:hover:bg-secondary/20" onClick={() => window.open(project.liveUrl, "_blank")}>
-                      <ExternalLink className="mr-2 h-5 w-5" />
-                      Live Demo
-                    </Button>
-                    <Button variant="outline" className=" cursor-none text-md py-2 px-4 bg-primary/10 dark:bg-secondary/10 hover:bg-primary/20 dark:hover:bg-secondary/20" onClick={() => window.open(project.githubUrl, "_blank")}>
-                      <Github className="mr-2 h-5 w-5" />
-                      GitHub
-                    </Button>
-                  </CardFooter>
-                </div>
-              </Card>
-            </motion.div>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-9">
+  {projects.map((project, index) => (
+    <motion.div
+      key={project.title}
+      ref={(el) => { cardsRef.current[index] = el; }}
+      className="relative"
+    >
+      <Card className="flex flex-col md:flex-row w-full h-full mx-auto
+                       bg-primary/10 dark:bg-secondary/10
+                       hover:shadow-xl transition-shadow duration-300
+                       border border-primary/20 dark:border-secondary/20">
+        
+        {/* Image Section */}
+        <div className="w-full md:w-1/2">
+          <Image
+            src={project.image}
+            alt={project.title}
+            width={500}
+            height={300}
+            className="rounded-l-lg object-contain w-full h-full object-center"
+          />
         </div>
+
+        {/* Content Section */}
+        <div className="w-full md:w-1/2 p-6 flex flex-col justify-center text-center">
+          <CardHeader>
+            <CardTitle className={`${interFont.className} mb-4
+                                    text-secondary dark:text-primary
+                                    text-2xl md:text-3xl font-semibold`}>
+              {project.title}
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex flex-wrap justify-center gap-3 mb-6">
+              {project.tags.map((tag) => (
+                <Badge
+                  key={tag}
+                  variant="secondary"
+                  className="bg-primary/20 hover:bg-primary/20
+                             dark:bg-secondary/20
+                             text-primary dark:text-secondary
+                             text-sm px-3 py-1"
+                >
+                  {tag}
+                </Badge>
+              ))}
+            </div>
+          </CardContent>
+          <CardFooter className="flex justify-center gap-4">
+            <Button
+              variant="outline"
+              className="cursor-pointer text-md py-2 px-4
+                         bg-primary/10 dark:bg-secondary/10
+                         hover:bg-primary/20 dark:hover:bg-secondary/20"
+              onClick={() => window.open(project.liveUrl, "_blank")}
+            >
+              <ExternalLink className="mr-2 h-5 w-5" />
+              Live Demo
+            </Button>
+            <Button
+              variant="outline"
+              className="cursor-pointer text-md py-2 px-4
+                         bg-primary/10 dark:bg-secondary/10
+                         hover:bg-primary/20 dark:hover:bg-secondary/20"
+              onClick={() => window.open(project.githubUrl, "_blank")}
+            >
+              <Github className="mr-2 h-5 w-5" />
+              GitHub
+            </Button>
+          </CardFooter>
+        </div>
+      </Card>
+    </motion.div>
+  ))}
+</div>
+
       </div>
     </section>
   );
