@@ -3,7 +3,7 @@ import {
   motion,
   MotionValue,
   useMotionTemplate,
-  useTransform
+  useTransform,
 } from "framer-motion";
 
 interface InfiniteBannerProps extends React.HTMLProps<HTMLDivElement> {
@@ -31,7 +31,7 @@ const InfiniteBanner = ({
         position: "relative",
         width: "max-content",
         overflow: "hidden",
-        ...otherProps.style
+        ...otherProps.style,
       }}
     >
       <motion.div style={{ translateX, width: "max-content" }}>
@@ -42,7 +42,7 @@ const InfiniteBanner = ({
             height: "100%",
             width: "100%",
             left: "100%",
-            top: 0
+            top: 0,
           }}
         >
           {children}

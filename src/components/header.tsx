@@ -2,11 +2,13 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useTheme } from "next-themes";
-import { Moon, Sun, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Inter } from "next/font/google";
+import Moon from "./icons/moon";
+import Sun from "./icons/sun";
 
 const interFont = Inter({ subsets: ["latin"], weight: "400" });
 
@@ -28,15 +30,15 @@ export default function Header() {
   }, []);
 
   const toggleTheme = () => {
-    setIsLoading(true); 
+    setIsLoading(true);
     const newTheme = theme === "dark" ? "light" : "dark";
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
-    window.dispatchEvent(new Event("storage")); 
+    window.dispatchEvent(new Event("storage"));
 
     setTimeout(() => {
       setIsLoading(false);
-    }, 1000); 
+    }, 1000);
   };
 
   return (
@@ -88,7 +90,7 @@ export default function Header() {
                     exit={{ opacity: 0, rotate: -90 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Moon data-cursor="hover" className="h-6 w-6" />
+                    <Moon data-cursor="hover"  />
                   </motion.div>
                 ) : (
                   <motion.div
@@ -98,7 +100,7 @@ export default function Header() {
                     exit={{ opacity: 0, rotate: 90 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Sun data-cursor="hover" className="h-6 w-6" />
+                    <Sun data-cursor="hover"  />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -110,7 +112,11 @@ export default function Header() {
               className="md:hidden text-primary dark:text-secondary hover:bg-primary/10 dark:hover:bg-secondary/10"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </Button>
           </div>
         </div>
@@ -126,9 +132,15 @@ export default function Header() {
               className="md:hidden bg-white dark:bg-background-dark shadow-lg border-t border-gray-300 dark:border-gray-700"
             >
               <nav className="px-6 py-4 space-y-2">
-                <NavLink href="#home" onClick={() => setIsMenuOpen(false)}>Home</NavLink>
-                <NavLink href="#skills" onClick={() => setIsMenuOpen(false)}>Skills</NavLink>
-                <NavLink href="#projects" onClick={() => setIsMenuOpen(false)}>Projects</NavLink>
+                <NavLink href="#home" onClick={() => setIsMenuOpen(false)}>
+                  Home
+                </NavLink>
+                <NavLink href="#skills" onClick={() => setIsMenuOpen(false)}>
+                  Skills
+                </NavLink>
+                <NavLink href="#projects" onClick={() => setIsMenuOpen(false)}>
+                  Projects
+                </NavLink>
               </nav>
             </motion.div>
           )}
@@ -148,7 +160,7 @@ function NavLink({ href, children, ...props }: NavLinkProps) {
   return (
     <a
       href={href}
-      className="block md:inline-block px-4 py-2 text-lg md:text-base text-primary dark:text-secondary hover:text-accent dark:hover:text-accent transition-colors cursor-none"
+      className="block md:inline-block px-4 py-2 text-lg md:text-base text-primary dark:text-secondary hover:text-accent dark:hover:text-accent transition-colors transform ease-in duration-500 cursor-none"
       {...props}
       data-cursor="hover"
     >

@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 body {
   cursor: none;
 }
@@ -104,10 +102,10 @@ body {
 
 @layer base {
   * {
-    border-color: hsl(var(--border)); 
+    border-color: hsl(var(--border));
   }
   body {
-    background-color: hsl(var(--background)); 
+    background-color: hsl(var(--background));
     color: hsl(var(--foreground));
   }
 }
@@ -131,15 +129,15 @@ body {
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #7C3AED; 
+  background: #7c3aed;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2980b9; 
+  background: #2980b9;
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: #6D28D9; 
+  background: #6d28d9;
 }
 
 @media (max-width: 1024px) {

@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
   content: [
@@ -10,48 +11,44 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#6D28D9", 
-          foreground: "#FFFFFF", 
+          DEFAULT: "#0E7490",       
+          foreground: "#F0FDF4",    
         },
         secondary: {
-          DEFAULT: "#1E40AF", 
-          foreground: "#FFFFFF", 
+          DEFAULT: "#A78BFA",       
+          foreground: "#1E1B4B",    
         },
         accent: {
-          DEFAULT: "#DB2777", 
-          foreground: "#FFFFFF", 
-        },
-        background: {
-          light: "#F3F4F6", 
-          dark: "#111827", 
+          DEFAULT: "#0e56cd",       
+          foreground: "#FFFFFF",
         },
         highlight: {
-          DEFAULT: "#F59E0B", 
-          foreground: "#FFFFFF", 
+          DEFAULT: "#EAB308",       
+          foreground: "#1C1917",
+        },
+        background: {
+          light: "#FAF9F6",         
+          dark: "#111827",          
         },
         button: {
-          DEFAULT: "#7C3AED", 
-          hover: "#6D28D9", 
-          foreground: "#FFFFFF", 
+          DEFAULT: "#9A3412",       
+          hover: "#7C2D12",         
+          foreground: "#FFFFFF",
         },
       },
       borderRadius: {
-        DEFAULT: "8px", 
+        DEFAULT: "8px",
       },
       boxShadow: {
-        DEFAULT: "0 4px 6px rgba(0, 0, 0, 0.1)", 
+        DEFAULT: "0 4px 6px rgba(0, 0, 0, 0.08)",
+        "accent-glow": "0 0 10px 3px #F97316",
+        "button-glow": "0 0 8px 3px #9A3412",
       },
       dropShadow: {
-        'yellow-glow': '8px 8px 10px #FAEA10', 
-        'dark-glow': '8px 8px 10px #FFD700',  
+        "accent-glow": "8px 8px 12px #F97316",
+        "button-glow": "6px 6px 10px #9A3412",
       },
-      boxShadow: {
-        'yellow-glow': '0 0 15px 4px #FAEA10', 
-        'dark-glow': '0 0 15px 4px #FFD700', 
-      },
-      
     },
-    
   },
   plugins: [require("tailwindcss-animate")],
 };

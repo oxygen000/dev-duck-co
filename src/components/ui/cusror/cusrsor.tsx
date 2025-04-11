@@ -5,7 +5,7 @@ import "./cursor.css";
 const Cursor: React.FC = () => {
   const cursorX = useMotionValue(0);
   const cursorY = useMotionValue(0);
-  
+
   const cursorSpringX = useSpring(cursorX, { stiffness: 500, damping: 10 });
   const cursorSpringY = useSpring(cursorY, { stiffness: 500, damping: 10 });
 
@@ -21,7 +21,7 @@ const Cursor: React.FC = () => {
     };
 
     const hoverElements = document.querySelectorAll("[data-cursor='hover']");
-    
+
     hoverElements.forEach((el) => {
       el.addEventListener("mouseenter", () => setIsHovering(true));
       el.addEventListener("mouseleave", () => setIsHovering(false));
