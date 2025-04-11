@@ -132,7 +132,6 @@ export default function Projects() {
                        hover:shadow-xl transition-shadow
                        border border-primary/20 dark:border-secondary/20 transform ease-in duration-500"
               >
-                {/* Image Section */}
                 <div className="w-full md:w-1/2">
                   <Image
                     src={project.image}
@@ -143,7 +142,6 @@ export default function Projects() {
                   />
                 </div>
 
-                {/* Content Section */}
                 <div className="w-full md:w-1/2 p-6 flex flex-col justify-center text-center">
                   <CardHeader>
                     <CardTitle

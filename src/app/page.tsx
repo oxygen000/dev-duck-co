@@ -8,7 +8,6 @@ import Projects from "@/components/projects";
 import Footer from "@/components/footer";
 import Cursor from "@/components/ui/cusror/cusrsor";
 
-
 export default function Home() {
   const [theme, setTheme] = useState("");
 
@@ -31,7 +30,9 @@ export default function Home() {
 
   return (
     <main
-      className={`min-h-screen ${theme === "dark" ? "dark:bg-background-dark" : "bg-background-light"} transition-colors duration-300`}
+      className={`min-h-screen ${
+        theme === "dark" ? "dark:bg-background-dark" : "bg-background-light"
+      } transition-colors duration-300`}
     >
       <div className="cursor">
         <Cursor />

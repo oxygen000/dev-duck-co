@@ -1,6 +1,5 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
 
 export default function ThemeWrapper({
@@ -11,16 +10,14 @@ export default function ThemeWrapper({
   const { theme } = useTheme();
 
   return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={theme}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -20 }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
-      >
-        {children}
-      </motion.div>
-    </AnimatePresence>
+    <div
+      className={`theme-wrapper ${theme === "dark" ? "dark" : ""}`}
+      style={{
+        transition: "background-color 0.3s ease, opacity 0.3s ease", 
+        opacity: theme === "dark" ? 1 : 0.95, 
+      }}
+    >
+      {children}
+    </div>
   );
 }

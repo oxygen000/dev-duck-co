@@ -32,7 +32,7 @@ export default function Footer() {
             data-cursor="hover"
             className="text-sm text-gray-600 dark:text-gray-400"
           >
-            Full-Stack Developer | Next.js | Angular | Express.js
+            Front-End Developer | Next.js | Angular
           </p>
         </div>
         <nav className="flex space-x-6 text-sm">
@@ -68,7 +68,7 @@ function FooterLink({ href, children }: FooterLinkProps) {
   return (
     <Link
       href={href}
-      className="text-gray-600 cursor-none dark:text-gray-400 hover:text-primary dark:hover:text-secondary transition-colors"
+      className="  text-primary dark:text-secondary hover:text-accent dark:hover:text-accent transition-colors transform ease-in duration-500 cursor-none"
       data-cursor="hover"
     >
       {children}
@@ -88,7 +88,7 @@ function SocialIcon({ href, icon }: SocialIconProps) {
       target="_blank"
       rel="noopener noreferrer"
       data-cursor="hover"
-      className="text-primary cursor-none dark:text-secondary hover:text-accent dark:hover:text-accent transition-colors"
+      className="text-primary dark:text-secondary hover:text-accent dark:hover:text-accent transition-colors transform ease-in duration-500 cursor-none "
     >
       {icon}
     </Link>

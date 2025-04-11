@@ -90,7 +90,7 @@ export default function Header() {
                     exit={{ opacity: 0, rotate: -90 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Moon data-cursor="hover"  />
+                    <Moon data-cursor="hover" />
                   </motion.div>
                 ) : (
                   <motion.div
@@ -100,7 +100,7 @@ export default function Header() {
                     exit={{ opacity: 0, rotate: 90 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Sun data-cursor="hover"  />
+                    <Sun data-cursor="hover" />
                   </motion.div>
                 )}
               </AnimatePresence>
