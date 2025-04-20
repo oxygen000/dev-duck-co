@@ -15,7 +15,6 @@ const interFont = Inter({ subsets: ["latin"], weight: "400" });
 export default function Header() {
   const { theme, setTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -30,15 +29,10 @@ export default function Header() {
   }, []);
 
   const toggleTheme = () => {
-    setIsLoading(true);
     const newTheme = theme === "dark" ? "light" : "dark";
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
     window.dispatchEvent(new Event("storage"));
-
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
   };
 
   return (
@@ -65,60 +59,33 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center space-x-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="text-primary cursor-none dark:text-secondary hover:bg-primary/10 dark:hover:bg-secondary/10"
-              onClick={toggleTheme}
-            >
-              <AnimatePresence mode="wait">
-                {isLoading ? (
-                  <motion.div
-                    key="loading"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <div className="w-6 h-6 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
-                  </motion.div>
-                ) : theme === "dark" ? (
-                  <motion.div
-                    key="moon"
-                    initial={{ opacity: 0, rotate: 90 }}
-                    animate={{ opacity: 1, rotate: 0 }}
-                    exit={{ opacity: 0, rotate: -90 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Moon data-cursor="hover" />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="sun"
-                    initial={{ opacity: 0, rotate: -90 }}
-                    animate={{ opacity: 1, rotate: 0 }}
-                    exit={{ opacity: 0, rotate: 90 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Sun data-cursor="hover" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </Button>
+  <Button
+    variant="ghost"
+    size="icon"
+    className="text-primary cursor-none  dark:text-secondary hover:bg-primary/10 dark:hover:bg-secondary/10"
+    onClick={toggleTheme}
+  >
+    {theme === "dark" ? (
+      <Moon className="w-9 h-9" />
+    ) : (
+      <Sun className="w-9 h-9 text-yellow-400" />
+    )}
+  </Button>
 
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden text-primary dark:text-secondary hover:bg-primary/10 dark:hover:bg-secondary/10"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </Button>
-          </div>
+  <Button
+    variant="ghost"
+    size="icon"
+    className="md:hidden text-primary dark:text-secondary hover:bg-primary/10 dark:hover:bg-secondary/10"
+    onClick={() => setIsMenuOpen(!isMenuOpen)}
+  >
+    {isMenuOpen ? (
+      <X className="h-6 w-6" />
+    ) : (
+      <Menu className="h-6 w-6" />
+    )}
+  </Button>
+</div>
+
         </div>
 
         <AnimatePresence>

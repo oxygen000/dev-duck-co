@@ -1,58 +1,207 @@
-"use client";
 import React from "react";
 
-function moon() {
-  return (
-    <>
-      <svg width={96} height={96} viewBox="0 0 24 24">
-        <g fill="currentColor" fillOpacity={0}>
-          <path d="M15.22 6.03l2.53 -1.94l-3.19 -0.09l-1.06 -3l-1.06 3l-3.19 0.09l2.53 1.94l-0.91 3.06l2.63 -1.81l2.63 1.81l-0.91 -3.06Z">
+const Moon = ({ className = "" }: { className?: string }) => (
+  <>
+    <svg width={48} height={48} viewBox="0 0 24 24" className={className}>
+      <path
+        fillOpacity={0}
+        d="M15.22 6.03l2.53-1.94L14.56 4L13.5 1l-1.06 3l-3.19.09l2.53 1.94l-.91 3.06l2.63-1.81l2.63 1.81z"
+        fill="currentColor"
+      >
+        <animate
+          id="lineMdSunnyOutlineToMoonLoopTransition0"
+          fill="freeze"
+          attributeName="fill-opacity"
+          begin="0.6s;lineMdSunnyOutlineToMoonLoopTransition0.begin+6s"
+          dur="0.4s"
+          values="0;1"
+        ></animate>
+        <animate
+          fill="freeze"
+          attributeName="fill-opacity"
+          begin="lineMdSunnyOutlineToMoonLoopTransition0.begin+2.2s"
+          dur="0.4s"
+          values="1;0"
+        ></animate>
+      </path>
+      <path
+        fillOpacity={0}
+        d="M13.61 5.25L15.25 4l-2.06-.05L12.5 2l-.69 1.95L9.75 4l1.64 1.25l-.59 1.98l1.7-1.17l1.7 1.17z"
+        fill="currentColor"
+      >
+        <animate
+          fill="freeze"
+          attributeName="fill-opacity"
+          begin="lineMdSunnyOutlineToMoonLoopTransition0.begin+3s"
+          dur="0.4s"
+          values="0;1"
+        ></animate>
+        <animate
+          fill="freeze"
+          attributeName="fill-opacity"
+          begin="lineMdSunnyOutlineToMoonLoopTransition0.begin+5.2s"
+          dur="0.4s"
+          values="1;0"
+        ></animate>
+      </path>
+      <path
+        fillOpacity={0}
+        d="M19.61 12.25L21.25 11l-2.06-.05L18.5 9l-.69 1.95l-2.06.05l1.64 1.25l-.59 1.98l1.7-1.17l1.7 1.17z"
+        fill="currentColor"
+      >
+        <animate
+          fill="freeze"
+          attributeName="fill-opacity"
+          begin="lineMdSunnyOutlineToMoonLoopTransition0.begin+0.4s"
+          dur="0.4s"
+          values="0;1"
+        ></animate>
+        <animate
+          fill="freeze"
+          attributeName="fill-opacity"
+          begin="lineMdSunnyOutlineToMoonLoopTransition0.begin+2.8s"
+          dur="0.4s"
+          values="1;0"
+        ></animate>
+      </path>
+      <path
+        fillOpacity={0}
+        d="M20.828 9.731l1.876-1.439l-2.366-.067L19.552 6l-.786 2.225l-2.366.067l1.876 1.439L17.601 12l1.951-1.342L21.503 12z"
+        fill="currentColor"
+      >
+        <animate
+          fill="freeze"
+          attributeName="fill-opacity"
+          begin="lineMdSunnyOutlineToMoonLoopTransition0.begin+3.4s"
+          dur="0.4s"
+          values="0;1"
+        ></animate>
+        <animate
+          fill="freeze"
+          attributeName="fill-opacity"
+          begin="lineMdSunnyOutlineToMoonLoopTransition0.begin+5.6s"
+          dur="0.4s"
+          values="1;0"
+        ></animate>
+      </path>
+      <g
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+      >
+        <g>
+          <path
+            strokeDasharray={2}
+            strokeDashoffset={4}
+            d="M12 21v1M21 12h1M12 3v-1M3 12h-1"
+          >
             <animate
               fill="freeze"
-              attributeName="fill-opacity"
-              begin="0.7s"
-              dur="0.4s"
-              values="0;1"
+              attributeName="stroke-dashoffset"
+              dur="0.2s"
+              values="4;2"
             ></animate>
           </path>
-          <path d="M19.61 12.25l1.64 -1.25l-2.06 -0.05l-0.69 -1.95l-0.69 1.95l-2.06 0.05l1.64 1.25l-0.59 1.98l1.7 -1.17l1.7 1.17l-0.59 -1.98Z">
+          <path
+            strokeDasharray={2}
+            strokeDashoffset={4}
+            d="M18.5 18.5l0.5 0.5M18.5 5.5l0.5 -0.5M5.5 5.5l-0.5 -0.5M5.5 18.5l-0.5 0.5"
+          >
             <animate
               fill="freeze"
-              attributeName="fill-opacity"
-              begin="1.1s"
-              dur="0.4s"
-              values="0;1"
+              attributeName="stroke-dashoffset"
+              begin="0.2s"
+              dur="0.2s"
+              values="4;2"
             ></animate>
           </path>
+          <set fill="freeze" attributeName="opacity" begin="0.5s" to={0}></set>
         </g>
         <path
-          fill="currentColor"
-          fillOpacity={0}
-          stroke="currentColor"
-          strokeDasharray={56}
-          strokeDashoffset={56}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M7 6c0 6.08 4.92 11 11 11c0.53 0 1.05 -0.04 1.56 -0.11c-1.61 2.47 -4.39 4.11 -7.56 4.11c-4.97 0 -9 -4.03 -9 -9c0 -3.17 1.64 -5.95 4.11 -7.56c-0.07 0.51 -0.11 1.03 -0.11 1.56Z"
+          d="M7 6 C7 12.08 11.92 17 18 17 C18.53 17 19.05 16.96 19.56 16.89 C17.95 19.36 15.17 21 12 21 C7.03 21 3 16.97 3 12 C3 8.83 4.64 6.05 7.11 4.44 C7.04 4.95 7 5.47 7 6 Z"
+          opacity={0}
         >
-          <animate
-            fill="freeze"
-            attributeName="fill-opacity"
-            begin="1.5s"
-            dur="0.5s"
-            values="0;1"
-          ></animate>
-          <animate
-            fill="freeze"
-            attributeName="stroke-dashoffset"
-            dur="0.6s"
-            values="56;0"
-          ></animate>
+          <set fill="freeze" attributeName="opacity" begin="0.5s" to={1}></set>
         </path>
-      </svg>
-    </>
-  );
-}
+      </g>
+      <mask id="lineMdSunnyOutlineToMoonLoopTransition1">
+        <circle cx={12} cy={12} r={12} fill="#fff"></circle>
+        <circle cx={12} cy={12} r={4}>
+          <animate
+            fill="freeze"
+            attributeName="r"
+            begin="0.1s"
+            dur="0.4s"
+            values="4;8"
+          ></animate>
+        </circle>
+        <circle cx={22} cy={2} r={3} fill="#fff">
+          <animate
+            fill="freeze"
+            attributeName="cx"
+            begin="0.1s"
+            dur="0.4s"
+            values="22;18"
+          ></animate>
+          <animate
+            fill="freeze"
+            attributeName="cy"
+            begin="0.1s"
+            dur="0.4s"
+            values="2;6"
+          ></animate>
+          <animate
+            fill="freeze"
+            attributeName="r"
+            begin="0.1s"
+            dur="0.4s"
+            values="3;12"
+          ></animate>
+        </circle>
+        <circle cx={22} cy={2} r={1}>
+          <animate
+            fill="freeze"
+            attributeName="cx"
+            begin="0.1s"
+            dur="0.4s"
+            values="22;18"
+          ></animate>
+          <animate
+            fill="freeze"
+            attributeName="cy"
+            begin="0.1s"
+            dur="0.4s"
+            values="2;6"
+          ></animate>
+          <animate
+            fill="freeze"
+            attributeName="r"
+            begin="0.1s"
+            dur="0.4s"
+            values="1;10"
+          ></animate>
+        </circle>
+      </mask>
+      <circle
+        cx={12}
+        cy={12}
+        r={6}
+        mask="url(#lineMdSunnyOutlineToMoonLoopTransition1)"
+        fill="currentColor"
+      >
+        <animate
+          fill="freeze"
+          attributeName="r"
+          begin="0.1s"
+          dur="0.4s"
+          values="6;10"
+        ></animate>
+        <set fill="freeze" attributeName="opacity" begin="0.5s" to={0}></set>
+      </circle>
+    </svg>
+  </>
+);
 
-export default moon;
+export default Moon;
